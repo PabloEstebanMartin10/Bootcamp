@@ -1,0 +1,4 @@
+p::before{
+    content: "Esto esta en la hoja de estilos, ";
+    color: red ;
+}
