@@ -1,0 +1,21 @@
+.animate-box {
+  width: 100px;
+  height: 100px;
+  background-color: lightblue;
+  animation-name: movimientoIzdaDcha;
+  animation-duration: 5s;
+  position: relative;
+  animation-iteration-count: infinite;
+  
+}
+
+@keyframes movimientoIzdaDcha {
+  0% {
+    left: 0px;
+  }
+
+  50% {
+    left: 100px;
+  }
+  100%{left: 0px;}
+}
