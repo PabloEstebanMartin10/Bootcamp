@@ -43,7 +43,8 @@ nav {
 	padding: 12px 21px;
 	border-radius: 5px;
 }
-main > h4,main > p {
+main > h4,
+main > p {
 	width: 50%;
 	justify-self: center;
 	text-align: center;
@@ -65,9 +66,11 @@ article > p {
 	width: 75%;
 }
 a {
-	font-size: 70%;
 	color: black;
 	text-decoration: none;
+}
+article > a {
+	font-size: 70%;
 }
 @media screen and (min-width: 750px) {
 	footer {
