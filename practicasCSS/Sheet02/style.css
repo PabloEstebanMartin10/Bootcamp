@@ -1,5 +1,6 @@
 * {
 	box-sizing: border-box;
+	font-family: sans-serif;
 }
 nav {
 	display: flex;
@@ -42,8 +43,7 @@ nav {
 	padding: 12px 21px;
 	border-radius: 5px;
 }
-main > h4,
-main > p {
+main > h4,main > p {
 	width: 50%;
 	justify-self: center;
 	text-align: center;
@@ -97,7 +97,6 @@ footer {
 		display: flex;
 	}
 }
-
 .footerlinks > ul {
 	list-style-type: none;
 }
