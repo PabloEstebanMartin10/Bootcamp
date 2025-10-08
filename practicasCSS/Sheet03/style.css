@@ -24,20 +24,35 @@ body {
 	border-bottom: 100px solid transparent;
 }
 .circle_br {
-    position: fixed;
-    top: 90%;
-    left: -3%;
+	position: fixed;
+	top: 90%;
+	left: -3%;
 	height: 100px;
 	width: 100px;
 	background-color: red;
 	border-radius: 50%;
 }
 .circle_bl {
-    position: fixed;
-    top: 90%;
-    right: -3%;
+	position: fixed;
+	top: 90%;
+	right: -3%;
 	height: 100px;
 	width: 100px;
 	background-color: red;
 	border-radius: 50%;
+}
+.container {
+	width: 60%;
+	margin: 0 auto;
+}
+nav {
+	display: flex;
+	justify-content: center;
+}
+.searchbar {
+	height: 2.5rem;
+	width: 80%;
+	border: none;
+	background-color: lightyellow;
+    text-align: center;
 }
