@@ -1,45 +1,38 @@
 * {
 	box-sizing: border-box;
+	font-family: Ubuntu;
 }
 body {
 	background-color: yellow;
 }
-
-.triangle_tr {
-	right: 0;
+.triangle {
 	top: 0;
-	position: fixed;
 	width: 0;
 	height: 0;
-	border-right: 100px solid black;
 	border-bottom: 100px solid transparent;
+	position: fixed;
+}
+.triangle_tr {
+	right: 0;
+	border-right: 100px solid black;
 }
 .triangle_tl {
 	left: 0;
-	top: 0;
-	position: fixed;
-	width: 0;
-	height: 0;
 	border-left: 100px solid black;
-	border-bottom: 100px solid transparent;
+}
+.circle {
+	position: fixed;
+	top: 90%;
+	height: 100px;
+	width: 100px;
+	background-color: red;
+	border-radius: 50%;
 }
 .circle_br {
-	position: fixed;
-	top: 90%;
 	left: -3%;
-	height: 100px;
-	width: 100px;
-	background-color: red;
-	border-radius: 50%;
 }
 .circle_bl {
-	position: fixed;
-	top: 90%;
 	right: -3%;
-	height: 100px;
-	width: 100px;
-	background-color: red;
-	border-radius: 50%;
 }
 .container {
 	width: 60%;
@@ -54,5 +47,80 @@ nav {
 	width: 80%;
 	border: none;
 	background-color: lightyellow;
-    text-align: center;
+	text-align: center;
+	box-shadow: 0 0 16px rgb(183, 195, 55);
+}
+.card__grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	column-gap: 1.5rem;
+	row-gap: 1rem;
+}
+img {
+	aspect-ratio: 1/1;
+	height: 100px;
+	width: 100px;
+	margin: 0 auto;
+}
+main {
+	margin-top: 2%;
+}
+.card__item {
+	background-color: white;
+}
+article {
+	box-shadow: 0 0 8px rgb(183, 195, 55);
+}
+article > p {
+	padding: 0 1%;
+	margin: 0;
+	font-size: 75%;
+	width: fit-content;
+	background-color: #c0bfbf;
+	color: maroon;
+}
+article > header {
+	background-color: #c0bfbf;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	p {
+		margin: 0;
+	}
+}
+footer {
+	background-color: rgb(255, 255, 255);
+	max-height: 300px;
+	h2 {
+		margin: 0.3rem;
+		padding: 0.2rem 1rem 0 1rem;
+	}
+	p {
+		margin: 0.3rem;
+		color: maroon;
+		padding: 0rem 1rem 0.5rem 1rem;
+	}
+}
+span {
+	border: 1px solid maroon;
+	border-radius: 7px;
+	padding: 0.1em 0.2em;
+}
+.evolution {
+	margin: 0 0 2em 1rem;
+	padding: 0 0 0 0.2rem;
+	border-left: maroon solid 2px;
+}
+.blankspace {
+	padding-bottom: 3rem;
+}
+header > p {
+	padding: 0 0.5rem;
+	width: max-content;
+	background-color: rgb(175, 175, 175);
+	margin-left: 0.5rem;
+	color: maroon;
+}
+p>strong{
+	font-size: 130%;
 }

@@ -6,23 +6,249 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokedex</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
-    <div class="triangle_tr"></div>
-    <div class="triangle_tl"></div>
-    <div class="circle_br"></div>
-    <div class="circle_bl"></div>
+    <div class="triangle triangle_tr"></div>
+    <div class="triangle triangle_tl"></div>
+    <div class="circle circle_br"></div>
+    <div class="circle circle_bl"></div>
     <div class="container">
         <header>
             <nav>
                 <input type="text" class="searchbar" placeholder="Filtra Pokémon por nombre...">
             </nav>
         </header>
+
+
+        <main class="card card__grid">
+            <article class="card card__item">
+                <header>
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png" alt="">
+                    <p>ID/1</p>
+                </header>
+                <footer>
+                    <h2>Bulbasaur</h2>
+                    <p class="types"><span>GRASS</span>&nbsp;<span>POISON</span></p>
+                    <p class="blankspace"></p>
+                </footer>
+            </article>
+            <article class="card card__item">
+                <header>
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/2.png" alt="">
+                    <p>ID/2</p>
+                </header>
+                <footer>
+                    <h2>Ivysaur</h2>
+                    <p class="types"><span>GRASS</span>&nbsp;<span>POISON</span></p>
+                    <p class="evolution">Evoluciona de <br> <strong>Bulbasaur</strong></p>
+                </footer>
+            </article>
+            <article class="card card__item">
+                <header>
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/3.png" alt="">
+                    <p>ID/3</p>
+                </header>
+                <footer>
+                    <h2>Venusaur</h2>
+                    <p class="types"><span>GRASS</span>&nbsp;<span>POISON</span></p>
+                    <p class="evolution">Evoluciona de <br> <strong>Ivysaur</strong></p>
+                </footer>
+            </article>
+            <article class="card card__item">
+                <header>
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png" alt="">
+                    <p>ID/4</p>
+                </header>
+                <footer>
+                    <h2>Charmander</h2>
+                    <p class="types"><span>FIRE</span></p>
+                    <p class="blankspace"></p>
+                </footer>
+            </article>
+            <article class="card card__item">
+                <header>
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/5.png" alt="">
+                    <p>ID/5</p>
+                </header>
+                <footer>
+                    <h2>Charmeleon</h2>
+                    <p class="types"><span>FIRE</span></p>
+                    <p class="evolution">Evoluciona de <br> <strong>Charmander</strong></p>
+                </footer>
+            </article>
+            <article class="card card__item">
+                <header>
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/6.png" alt="">
+                    <p>ID/6</p>
+                </header>
+                <footer>
+                    <h2>Charizard</h2>
+                    <p class="types"><span>FIRE</span>&nbsp;<span>FLYING</span></p>
+                    <p class="evolution">Evoluciona de <br> <strong>Charmeleon</strong></p>
+                </footer>
+            </article>
+            <article class="card card__item">
+                <header>
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png" alt="">
+                    <p>ID/7</p>
+                </header>
+                <footer>
+                    <h2>Squirtle</h2>
+                    <p class="types"><span>WATER</span></p>
+                    <p class="blankspace"></p>
+                </footer>
+            </article>
+            <article class="card card__item">
+                <header>
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/8.png" alt="">
+                    <p>ID/8</p>
+                </header>
+                <footer>
+                    <h2>Wartortle</h2>
+                    <p class="types"><span>WATER</span></p>
+                    <p class="evolution">Evoluciona de <br> <strong>Squirtle</strong></p>
+                </footer>
+            </article>
+            <article class="card card__item">
+                <header>
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/9.png" alt="">
+                    <p>ID/9</p>
+                </header>
+                <footer>
+                    <h2>Blastoise</h2>
+                    <p class="types"><span>WATER</span></p>
+                    <p class="evolution">Evoluciona de <br> <strong>Wartortle</strong></p>
+                </footer>
+            </article>
+            <article class="card card__item">
+                <header>
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/10.png" alt="">
+                    <p>ID/10</p>
+                </header>
+                <footer>
+                    <h2>Caterpie</h2>
+                    <p class="types"><span>BUG</span></p>
+                    <p class="blankspace"></p>
+                </footer>
+            </article>
+            <article class="card card__item">
+                <header>
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/11.png" alt="">
+                    <p>ID/11</p>
+                </header>
+                <footer>
+                    <h2>Metapod</h2>
+                    <p class="types"><span>BUG</span></p>
+                    <p class="evolution">Evoluciona de <br> <strong>Caterpie</strong></p>
+                </footer>
+            </article>
+            <article class="card card__item">
+                <header>
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/12.png" alt="">
+                    <p>ID/12</p>
+                </header>
+                <footer>
+                    <h2>Butterfree</h2>
+                    <p class="types"><span>BUG</span>&nbsp;<span>FLYING</span></p>
+                    <p class="evolution">Evoluciona de <br> <strong>Metapod</strong></p>
+                </footer>
+            </article>
+            <article class="card card__item">
+                <header>
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/13.png" alt="">
+                    <p>ID/13</p>
+                </header>
+                <footer>
+                    <h2>Weedle</h2>
+                    <p class="types"><span>BUG</span>&nbsp;<span>POISON</span></p>
+                    <p class="blankspace"></p>
+                </footer>
+            </article>
+            <article class="card card__item">
+                <header>
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/14.png" alt="">
+                    <p>ID/14</p>
+                </header>
+                <footer>
+                    <h2>Kakuna</h2>
+                    <p class="types"><span>BUG</span>&nbsp;<span>POISON</span></p>
+                    <p class="evolution">Evoluciona de <br> <strong>Weedle</strong></p>
+                </footer>
+            </article>
+            <article class="card card__item">
+                <header>
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/15.png" alt="">
+                    <p>ID/15</p>
+                </header>
+                <footer>
+                    <h2>Beedril</h2>
+                    <p class="types"><span>BUG</span>&nbsp;<span>POISON</span></p>
+                    <p class="evolution">Evoluciona de <br> Kakuna</p>
+                </footer>
+            </article>
+            <article class="card card__item">
+                <header>
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/16.png" alt="">
+                    <p>ID/16</p>
+                </header>
+                <footer>
+                    <h2>Pidgey</h2>
+                    <p class="types"><span>FLYING</span>&nbsp;<span>NORMAL</span></p>
+                    <p class="blankspace"></p>
+                </footer>
+            </article>
+            <article class="card card__item">
+                <header>
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/17.png" alt="">
+                    <p>ID/17</p>
+                </header>
+                <footer>
+                    <h2>Pidegeotto</h2>
+                    <p class="types"><span>FLYING</span>&nbsp;<span>NORMAL</span></p>
+                    <p class="evolution">Evoluciona de <br> <strong>Pidgey</strong></p>
+                </footer>
+            </article>
+            <article class="card card__item">
+                <header>
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/18.png" alt="">
+                    <p>ID/18</p>
+                </header>
+                <footer>
+                    <h2>Pidgeot</h2>
+                    <p class="types"><span>flying</span>&nbsp;<span>normal</span></p>
+                    <p class="evolution">Evoluciona de <br> <strong>Pidegeotto</strong></p>
+                </footer>
+            </article>
+            <article class="card card__item">
+                <header>
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/19.png" alt="">
+                    <p>ID/19</p>
+                </header>
+                <footer>
+                    <h2>rattatta</h2>
+                    <p class="types"><span>NORMAL</span></p>
+                    <p class="blankspace"></p>
+                </footer>
+            </article>
+            <article class="card card__item">
+                <header>
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/20.png" alt="">
+                    <p>ID/20</p>
+                </header>
+                <footer>
+                    <h2>Raticate</h2>
+                    <p class="types"><span>NORMAL</span></p>
+                    <p class="evolution">Evoluciona de <br> <strong>rattatta</strong></p>
+                </footer>
+            </article>
+        </main>
     </div>
-
-
-
 </body>
 
 </html>
