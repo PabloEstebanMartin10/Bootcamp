@@ -1,0 +1,18 @@
+*{
+    box-sizing: border-box;
+}
+@keyframes scrolling_text{
+   from{left: 100%;}
+   to{left: -50%;}
+}
+.text_scroller{
+	line-height: 1em;
+	white-space: nowrap;
+	overflow: hidden;
+}
+span{
+    position: absolute;
+    animation: scrolling_text 10s linear infinite;
+	left: -50%;
+    overflow: hidden;
+}
