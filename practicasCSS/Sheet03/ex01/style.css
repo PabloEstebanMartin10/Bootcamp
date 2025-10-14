@@ -12,11 +12,11 @@ body {
 	border-bottom: 100px solid transparent;
 	position: fixed;
 }
-.triangle_tr {
+.triangle--r {
 	right: 0;
 	border-right: 100px solid black;
 }
-.triangle_tl {
+.triangle--l {
 	left: 0;
 	border-left: 100px solid black;
 }
@@ -28,10 +28,10 @@ body {
 	background-color: red;
 	border-radius: 50%;
 }
-.circle_br {
+.circle--r {
 	left: -3%;
 }
-.circle_bl {
+.circle--l {
 	right: -3%;
 }
 .container {
@@ -50,7 +50,7 @@ nav {
 	text-align: center;
 	box-shadow: 0 0 16px rgb(183, 195, 55);
 }
-.card__grid {
+.pokecard__grid {
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr;
 	column-gap: 1.5rem;
@@ -65,7 +65,7 @@ img {
 main {
 	margin-top: 2%;
 }
-.card__item {
+.pokecard__item {
 	background-color: white;
 }
 article {
