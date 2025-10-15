@@ -10,10 +10,10 @@ export function media(...nums) {
 	nums.forEach((num) => {
 		if (num === Number) {
 			nElements++;
-            sum = sum+num;
+			sum = sum + num;
 		}
 	});
-    return sum/nElements;
+	return sum / nElements;
 }
 
 const PI = 3.1416;
