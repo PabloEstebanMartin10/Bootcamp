@@ -14,14 +14,16 @@ li2.textContent = "Practica DOM";
 //add elementos al html
 listaTareas.append(li1, li2);
 contenedor.append(subtitulo, listaTareas);
-
-//ejercicio 2
+//actualiza el contador de tareas
 updteContTareas();
+//añade los botones a los elementos de la lista
+addButtonsLi();
 //declara input
 const formInput = document.getElementsByTagName("input")[0];
 //añade atributos a input
 formInput.setAttribute("required", "");
 formInput.setAttribute("pattern", `(.|\\s)*\\S(.|\\s)*`);
+
 //añade el eventlistener
 document.querySelector("#form-tarea").addEventListener("click", (e) => {
   //elimina el comportamiento basico del formulario para hacer input
@@ -32,18 +34,53 @@ document.querySelector("#form-tarea").addEventListener("click", (e) => {
     nuevaTarea(formInput);
     //actualizar el contador de tareas
     updteContTareas();
+    //recorre todos los elementos de la lista de tareas y comprueba si tienen botones, en caso de que no lo añaden
+    addButtonsLi();
     //resetea el formulario para limpiar valores
     document.querySelector("#form-tarea").reset();
   }
 });
 
+listaTareas.addEventListener("click", (e) => {
+  if (e.target.tagName === "BUTTON") {
+    switch (e.target.textContent) {
+      case "Completar":
+        e.target.parentElement.parentElement.classList.add("hecha");
+        break;
+      case "Eliminar":
+        e.target.parentElement.parentElement.remove();
+        updteContTareas();
+        break;
+    }
+  }
+});
+
+//actualiza el contador de tareas
 function updteContTareas() {
   document.getElementsByClassName("nTareas")[0].textContent =
     listaTareas.childElementCount;
 }
+
+//añade  una tarea a la lista
 function nuevaTarea(formInput) {
   const li = document.createElement("li");
   li.classList.add("tarea");
   li.textContent = formInput.value.trim();
   listaTareas.append(li);
+}
+
+//añade los botones iniciales a la lista
+function addButtonsLi() {
+  const tareas = document.getElementsByClassName("tarea");
+  for (let i = 0; i < tareas.length; i++) {
+    if (tareas[i].childElementCount < 1) {
+      const divBotones = document.createElement("div");
+      const botonComp = document.createElement("button");
+      const botonDel = document.createElement("button");
+      botonComp.textContent = "Completar";
+      botonDel.textContent = "Eliminar";
+      divBotones.append(botonComp, botonDel);
+      tareas[i].append(divBotones);
+    }
+  }
 }
