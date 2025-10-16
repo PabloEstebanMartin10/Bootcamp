@@ -30,7 +30,9 @@ document.querySelector("#form-tarea").addEventListener("click", (e) => {
 	if (e.target.type == "submit" && formInput.reportValidity()) {
 		//crea una li y la añade como nueva tarea con el texto del input, tras esto resetea el formulario
 		nuevaTarea(formInput);
+        //actualizar el contador de tareas
 		updteContTareas();
+        //resetea el formulario para limpiar valores
 		document.querySelector("#form-tarea").reset();
 	}
 });
