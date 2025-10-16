@@ -16,6 +16,7 @@ listaTareas.append(li1, li2);
 contenedor.append(subtitulo, listaTareas);
 
 //ejercicio 2
+updteContTareas();
 //declara input
 const formInput = document.getElementsByTagName("input")[0];
 //añade atributos a input
@@ -28,10 +29,19 @@ document.querySelector("#form-tarea").addEventListener("click", (e) => {
 	//comprueba que se haya pulsado el boton
 	if (e.target.type == "submit" && formInput.checkValidity()) {
 		//crea una li y la añade como nueva tarea con el texto del input, tras esto resetea el formulario
-		const li = document.createElement("li");
-		li.classList.add("tarea");
-		li.textContent = formInput.value.trim();
-		listaTareas.append(li);
+		nuevaTarea(formInput);
+		updteContTareas();
 		document.querySelector("#form-tarea").reset();
 	}
 });
+
+function updteContTareas() {
+	document.getElementsByClassName("nTareas")[0].textContent =
+		listaTareas.childElementCount;
+}
+function nuevaTarea(formInput) {
+	const li = document.createElement("li");
+	li.classList.add("tarea");
+	li.textContent = formInput.value.trim();
+	listaTareas.append(li);
+}
