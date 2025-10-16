@@ -27,7 +27,7 @@ document.querySelector("#form-tarea").addEventListener("click", (e) => {
 	//elimina el comportamiento basico del formulario para hacer input
 	e.preventDefault();
 	//comprueba que se haya pulsado el boton
-	if (e.target.type == "submit" && formInput.checkValidity()) {
+	if (e.target.type == "submit" && formInput.reportValidity()) {
 		//crea una li y la añade como nueva tarea con el texto del input, tras esto resetea el formulario
 		nuevaTarea(formInput);
 		updteContTareas();
