@@ -1,0 +1,19 @@
+* {
+  box-sizing: border-box;
+}
+
+.tarea {
+  display: flex;
+  list-style-type: disc;
+  justify-content: space-between;
+  padding: 0.2em;
+}
+
+li > div {
+  display: grid;
+}
+
+.hecha {
+  transition-duration: 2s;
+  background-color: greenyellow;
+}
