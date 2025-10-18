@@ -38,6 +38,11 @@ document.querySelector("#form-tarea").addEventListener("click", (e) => {
     addButtonsLi();
     //resetea el formulario para limpiar valores
     document.querySelector("#form-tarea").reset();
+  } else if (!formInput.checkValidity()) {
+    const evento = new CustomEvent("errorFormulario", {
+      detail: { mensaje: "El campo no puede estar vacío" },
+    });
+    document.dispatchEvent(evento);
   }
 });
 
@@ -84,3 +89,7 @@ function addButtonsLi() {
     }
   }
 }
+
+document.addEventListener("errorFormulario", (e)=> {
+  console.log("La tarea no puede estar vacía");
+})
