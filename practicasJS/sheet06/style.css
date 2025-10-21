@@ -1,6 +1,7 @@
 * {
 	box-sizing: border-box;
 	font-family: Ubuntu;
+    text-transform: capitalize;
 }
 body {
 	background-color: yellow;
