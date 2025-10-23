@@ -1,12 +1,30 @@
-let pagina =1;
+let pagina = 1;
+let pokeCount = null;
+const paginatorBack = document.getElementsByClassName("paginator__back")[0];
+const paginatorNext = document.getElementsByClassName("paginator__next")[0];
 
+function checkPaginator() {
+	const paginatorNumber =
+		document.getElementsByClassName("paginator__pNumber")[0];
+	paginatorNumber.textContent = "" + pagina;
+	if (pagina == 1) {
+		paginatorBack.disabled = true;
+	} else if (pagina == Math.round(pokeCount / 21)) {
+		paginatorNext.disabled = true;
+	} else {
+		paginatorBack.disabled = false;
+		paginatorNext.disabled = false;
+	}
+}
 async function obtenerPokemon() {
 	try {
 		const respuesta = await fetch(
-			`https://pokeapi.co/api/v2/pokemon/?offset=${(pagina-1)*21}&limit=21`
+			`https://pokeapi.co/api/v2/pokemon/?offset=${(pagina - 1) * 21}&limit=21`
 		);
+
 		if (!respuesta.ok) throw new Error("No se encontró el Pokémon");
 		const pokemon = await respuesta.json();
+		pokeCount = pokemon.count;
 		obtenerDatos(pokemon);
 	} catch (error) {
 		console.error("Error:", error.message);
@@ -14,6 +32,7 @@ async function obtenerPokemon() {
 }
 async function obtenerDatos(pokemon) {
 	const pokeArray = [];
+
 	for (const data of pokemon.results) {
 		const response = await fetch(data.url);
 		if (!response.ok) throw new Error("No se han podido obtener los pokemon");
@@ -31,7 +50,6 @@ async function obtenerDatos(pokemon) {
 			}
 			pokeEvo = await responseEvo.json();
 		}
-
 		const pokeinfo = {
 			id: pokeData.id,
 			url: pokeData.sprites.front_default,
@@ -43,10 +61,12 @@ async function obtenerDatos(pokemon) {
 	}
 	crearTarjetas(pokeArray);
 }
-
 function crearTarjetas(pokemon) {
-	const grid = document.getElementsByClassName("pokecard__grid");
-
+	const grid = document.getElementsByClassName("pokecard__grid")[0];
+	while (grid.hasChildNodes()) {
+		console.log(grid.hasChildNodes())
+		grid.removeChild(grid.firstChild);
+	}
 	pokemon.forEach((poke) => {
 		//#region itemsTarjeta
 		const articulo = document.createElement("article");
@@ -74,11 +94,11 @@ function crearTarjetas(pokemon) {
 		} else {
 			pokeEvo.classList.add("evolution");
 			pokeEvo.textContent = "Evoluciona de:";
-            pokeEvo.append(document.createElement("br"));
+			pokeEvo.append(document.createElement("br"));
 			pokeEvoStrong.textContent = poke.evolvefrom;
 		}
 		if (poke.types.length > 1) {
-			pokeTypes.append(pokeType2);
+			pokeTypes.append(" ", pokeType2);
 			pokeType2.textContent = poke.types[1];
 		}
 		pokeEvo.append(pokeEvoStrong);
@@ -86,8 +106,20 @@ function crearTarjetas(pokemon) {
 		pokeID.textContent = `ID/${poke.id}`;
 		pokeimg.src = poke.url;
 		pokeType1.textContent = poke.types[0];
-		grid[0].append(articulo);
+		grid.append(articulo);
 	});
 }
 
 obtenerPokemon();
+checkPaginator();
+
+paginatorBack.addEventListener("click", () => {
+	pagina--;
+	checkPaginator();
+	obtenerPokemon();
+});
+paginatorNext.addEventListener("click", () => {
+	pagina++;
+	checkPaginator();
+	obtenerPokemon();
+});
