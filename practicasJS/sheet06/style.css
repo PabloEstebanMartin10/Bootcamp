@@ -1,11 +1,12 @@
 * {
 	box-sizing: border-box;
 	font-family: Ubuntu;
-    text-transform: capitalize;
+	text-transform: capitalize;
 }
 body {
 	background-color: yellow;
 }
+/*#region shapes*/
 .triangle {
 	top: 0;
 	width: 0;
@@ -35,6 +36,7 @@ body {
 .circle--l {
 	right: -3%;
 }
+/*#endregion */
 .container {
 	width: 60%;
 	margin: 0 auto;
@@ -51,11 +53,48 @@ nav {
 	text-align: center;
 	box-shadow: 0 0 16px rgb(183, 195, 55);
 }
+main {
+	margin-top: 2%;
+}
 .pokecard__grid {
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr;
 	column-gap: 1.5rem;
 	row-gap: 1rem;
+}
+article {
+	box-shadow: 0 0 8px rgb(183, 195, 55);
+	header {
+		border-radius: 4px 4px 0 0;
+		background-color: #c0bfbf;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		p {
+			margin: 0;
+		}
+	}
+}
+.pokecard__item {
+	background-color: white;
+	border-radius: 4px;
+	footer {
+		background-color: rgb(255, 255, 255);
+		max-height: 300px;
+		h2 {
+			margin: 0.3rem;
+			padding: 0.2rem 1rem 0 1rem;
+		}
+		p {
+			margin: 0.3rem;
+			padding: 0rem 1rem 0.5rem 1rem;
+		}
+		span {
+			border: 1px solid maroon;
+			border-radius: 7px;
+			padding: 0.1em 0.2em;
+		}
+	}
 }
 img {
 	aspect-ratio: 1/1;
@@ -63,14 +102,11 @@ img {
 	width: 100px;
 	margin: 0 auto;
 }
-main {
-	margin-top: 2%;
-}
-.pokecard__item {
-	background-color: white;
-}
-article {
-	box-shadow: 0 0 8px rgb(183, 195, 55);
+p {
+	color: maroon;
+	strong {
+		font-size: 130%;
+	}
 }
 article > p {
 	padding: 0 1%;
@@ -78,35 +114,9 @@ article > p {
 	font-size: 75%;
 	width: fit-content;
 	background-color: #c0bfbf;
-	color: maroon;
 }
-article > header {
-	background-color: #c0bfbf;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	p {
-		margin: 0;
-	}
-}
-footer {
-	background-color: rgb(255, 255, 255);
-	max-height: 300px;
-	h2 {
-		margin: 0.3rem;
-		padding: 0.2rem 1rem 0 1rem;
-	}
-	p {
-		margin: 0.3rem;
-		color: maroon;
-		padding: 0rem 1rem 0.5rem 1rem;
-	}
-}
-span {
-	border: 1px solid maroon;
-	border-radius: 7px;
-	padding: 0.1em 0.2em;
-}
+
+
 .evolution {
 	margin: 0 0 2em 1rem;
 	padding: 0 0 0 0.2rem;
@@ -115,13 +125,19 @@ span {
 .blankspace {
 	padding-bottom: 3rem;
 }
-header > p {
-	padding: 0 0.5rem;
-	width: max-content;
-	background-color: rgb(175, 175, 175);
-	margin-left: 0.5rem;
-	color: maroon;
+footer{
+	margin: 0.8rem auto 0 auto;
 }
-p > strong {
-	font-size: 130%;
+.paginator {
+	display: flex;
+	background-color: rgb(228, 228, 11);
+	justify-content: space-between;
+	button {
+		background-color: rgb(228, 228, 11);
+		padding: 0 1rem;
+	}
+	p {
+		margin: 0;
+		color: black;
+	}
 }
