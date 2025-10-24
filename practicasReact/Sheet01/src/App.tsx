@@ -1,7 +1,7 @@
 import "./App.css";
 import Saludo from "./exercises/ex01/saludo";
-import Composicion from "./exercises/ex01/composición";
-import Usuario from "./exercises/ex01/usuario";
+import Composicion from "./exercises/ex02/composición";
+import Usuario from "./exercises/ex03/usuario";
 
 function App() {
 	return (
