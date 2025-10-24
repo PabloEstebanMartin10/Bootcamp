@@ -47,7 +47,7 @@ nav {
 }
 .searchbar {
 	height: 2.5rem;
-	width: 80%;
+	width: 100%;
 	border: none;
 	background-color: lightyellow;
 	text-align: center;
@@ -72,6 +72,9 @@ article {
 		justify-content: center;
 		p {
 			margin: 0;
+			width: max-content;
+			background-color: #aaaaaa;
+			padding: 0 0.5rem;
 		}
 	}
 }
@@ -115,8 +118,6 @@ article > p {
 	width: fit-content;
 	background-color: #c0bfbf;
 }
-
-
 .evolution {
 	margin: 0 0 2em 1rem;
 	padding: 0 0 0 0.2rem;
@@ -130,14 +131,23 @@ footer{
 }
 .paginator {
 	display: flex;
-	background-color: rgb(228, 228, 11);
+	background-color: lightyellow;
 	justify-content: space-between;
+	box-shadow:  0 0 8px rgb(183, 195, 55);
 	button {
-		background-color: rgb(228, 228, 11);
+		background-color: lightyellow;
 		padding: 0 1rem;
+		border: none;
 	}
 	p {
+		box-shadow: none;
 		margin: 0;
 		color: black;
 	}
+	span{
+		box-shadow: none;
+	}
+}
+input:focus-visible {
+    outline: none;	
 }

@@ -1,7 +1,18 @@
 let pagina = 1;
+const itemNumber = 21;
 let pokeCount = null;
+let pokeList = [];
 const paginatorBack = document.getElementsByClassName("paginator__back")[0];
 const paginatorNext = document.getElementsByClassName("paginator__next")[0];
+const pokeFilter = document.getElementsByClassName("searchbar")[0];
+
+async function init() {
+	const pokemon = await obtenerPokemon(pagina, itemNumber);
+	obtenerDatos(pokemon.results);
+	pokeList = await obtenerPokemon(1, pokeCount);
+	checkPaginator();
+}
+init();
 
 function checkPaginator() {
 	const paginatorNumber =
@@ -16,16 +27,16 @@ function checkPaginator() {
 		paginatorNext.disabled = false;
 	}
 }
-async function obtenerPokemon() {
+async function obtenerPokemon(pag, lim) {
 	try {
 		const respuesta = await fetch(
-			`https://pokeapi.co/api/v2/pokemon/?offset=${(pagina - 1) * 21}&limit=21`
+			`https://pokeapi.co/api/v2/pokemon/?offset=${(pag - 1) * 21}&limit=${lim}`
 		);
 
 		if (!respuesta.ok) throw new Error("No se encontró el Pokémon");
 		const pokemon = await respuesta.json();
 		pokeCount = pokemon.count;
-		obtenerDatos(pokemon);
+		return pokemon;
 	} catch (error) {
 		console.error("Error:", error.message);
 	}
@@ -33,25 +44,19 @@ async function obtenerPokemon() {
 async function obtenerDatos(pokemon) {
 	const pokeArray = [];
 
-	for (const data of pokemon.results) {
+	for (const data of pokemon) {
 		const response = await fetch(data.url);
 		if (!response.ok) throw new Error("No se han podido obtener los pokemon");
 
 		const pokeData = await response.json();
 		let pokeEvo = null;
-
-		if (pokeData.id < 10000) {
-			const responseEvo = await fetch(
-				`https://pokeapi.co/api/v2/pokemon-species/${pokeData.id}`
-			);
-			if (!responseEvo.ok) {
-				console.log(pokedata);
-				throw new Error("No se han podido obtener las evoluciones");
-			}
-			pokeEvo = await responseEvo.json();
+		const responseEvo = await fetch(pokeData.species.url);
+		if (!responseEvo.ok) {
+			throw new Error("No se han podido obtener las evoluciones");
 		}
+		pokeEvo = await responseEvo.json();
 		const pokeinfo = {
-			id: pokeData.id,
+			id: pokeData.order,
 			url: pokeData.sprites.front_default,
 			name: pokeData.name,
 			types: pokeData.types.map((type) => type.type.name),
@@ -64,7 +69,6 @@ async function obtenerDatos(pokemon) {
 function crearTarjetas(pokemon) {
 	const grid = document.getElementsByClassName("pokecard__grid")[0];
 	while (grid.hasChildNodes()) {
-		console.log(grid.hasChildNodes())
 		grid.removeChild(grid.firstChild);
 	}
 	pokemon.forEach((poke) => {
@@ -109,17 +113,29 @@ function crearTarjetas(pokemon) {
 		grid.append(articulo);
 	});
 }
-
-obtenerPokemon();
-checkPaginator();
-
-paginatorBack.addEventListener("click", () => {
+paginatorBack.addEventListener("click", async () => {
 	pagina--;
 	checkPaginator();
-	obtenerPokemon();
+	const pokemon = await obtenerPokemon(pagina, itemNumber);
+	obtenerDatos(pokemon.results);
 });
-paginatorNext.addEventListener("click", () => {
+paginatorNext.addEventListener("click", async () => {
 	pagina++;
 	checkPaginator();
-	obtenerPokemon();
+	const pokemon = await obtenerPokemon(pagina, itemNumber);
+	obtenerDatos(pokemon.results);
+});
+
+pokeFilter.addEventListener("input", async () => {
+	const filteredList = pokeList.results
+		.filter((p) =>
+			p.name.toLowerCase().includes(pokeFilter.value.trim().toLowerCase())
+		)
+		.slice(0, 21);
+	if (filteredList.length < 1) {
+		const pokemon = await obtenerPokemon(pagina, itemNumber);
+		obtenerDatos(pokemon.results);
+	} else {
+		obtenerDatos(filteredList);
+	}
 });
