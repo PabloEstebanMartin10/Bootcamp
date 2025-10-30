@@ -1,17 +1,22 @@
 @import "tailwindcss";
 
 @theme {
-	--color-pikachu: 255, 230, 40;
-	--color-cheek: 230, 40, 40;
-	--font-sans: "Inter", sans-serif;
+  --color-pikachu: 255, 230, 40;
+  --color-shadow: 199, 196, 29;
+  --color-cheek: 230, 40, 40;
+  --color-grayBG:192,192,192;
+  --color-lightgrayBG:170,170,170;
+  --color-maroon: 128,0,0;
+
+  --font-sans: "Inter", sans-serif;
 }
 
 @layer base {
-	* {
-		box-sizing: border-box;
-	}
+  * {
+    box-sizing: border-box;
+  }
 
-	html {
-		font-family: "Ubuntu", sans-serif;
-	}
+  html {
+    font-family: "Ubuntu", sans-serif;
+  }
 }
