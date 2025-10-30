@@ -35,7 +35,8 @@ function Cards({
             ))}
           </p>
           <p className={hasEvo ? "pokecard pokecard__evolution" : "blankspace"}>
-            {hasEvo && "Evolves from"}
+            {hasEvo && "Evolves from "}
+            <br />
             <strong>{hasEvo && evolvesFrom}</strong>
           </p>
         </footer>
