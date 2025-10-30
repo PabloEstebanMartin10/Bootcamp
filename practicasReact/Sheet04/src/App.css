@@ -1,163 +1,166 @@
 * {
-	box-sizing: border-box;
-	font-family: Ubuntu;
-	text-transform: capitalize;
+  box-sizing: border-box;
+  font-family: Ubuntu;
+  text-transform: capitalize;
 }
 body {
-	background-color: yellow;
+  background-color: yellow;
   width: 100%;
   display: inline-block;
-  header{
+  header {
     width: 80%;
     margin: 0 auto;
-    padding: 1rem 0 0 0 ;
+    padding: 1rem 0 0 0;
   }
 }
-#root{
+#root {
   width: 100%;
 }
 /*#region shapes*/
 .triangle {
-	top: 0;
-	width: 0;
-	height: 0;
-	border-bottom: 100px solid transparent;
-	position: fixed;
+  top: 0;
+  width: 0;
+  height: 0;
+  border-bottom: 100px solid transparent;
+  position: fixed;
 }
 .triangle--r {
-	right: 0;
-	border-right: 100px solid black;
+  right: 0;
+  border-right: 100px solid black;
 }
 .triangle--l {
-	left: 0;
-	border-left: 100px solid black;
+  left: 0;
+  border-left: 100px solid black;
 }
 .circle {
-	position: fixed;
-	top: 90%;
-	height: 100px;
-	width: 100px;
-	background-color: red;
-	border-radius: 50%;
+  position: fixed;
+  top: 90%;
+  height: 100px;
+  width: 100px;
+  background-color: red;
+  border-radius: 50%;
 }
 .circle--r {
-	left: -3%;
+  left: -3%;
 }
 .circle--l {
-	right: -3%;
+  right: -3%;
 }
 /*#endregion */
 .container {
-	width: 60%;
-	margin: 0 auto;
+  width: 60%;
+  margin: 0 auto;
 }
 nav {
-	display: flex;
-	justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 .searchbar {
-	height: 2.5rem;
-	width: 100%;
-	border: none;
-	background-color: lightyellow;
-	text-align: center;
-	box-shadow: 0 0 16px rgb(183, 195, 55);
+  height: 2.5rem;
+  width: 100%;
+  border: none;
+  background-color: lightyellow;
+  text-align: center;
+  box-shadow: 0 0 16px rgb(183, 195, 55);
 }
 main {
-	margin-top: 2%;
+  margin-top: 2%;
 }
 .pokecard__grid {
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
-	column-gap: 1.5rem;
-	row-gap: 1rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 1.5rem;
+  row-gap: 1rem;
+}
+h2 {
+  color: black;
 }
 article {
-	box-shadow: 0 0 8px rgb(183, 195, 55);
-	header {
-		border-radius: 4px 4px 0 0;
-		background-color: #c0bfbf;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		p {
-			margin: 0;
-			width: max-content;
-			background-color: #aaaaaa;
-			padding: 0 0.5rem;
-		}
-	}
+  box-shadow: 0 0 8px rgb(183, 195, 55);
+  header {
+    border-radius: 4px 4px 0 0;
+    background-color: #c0bfbf;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    p {
+      margin: 0;
+      width: max-content;
+      background-color: #aaaaaa;
+      padding: 0 0.5rem;
+    }
+  }
 }
 .pokecard__item {
-	background-color: white;
-	border-radius: 4px;
-	footer {
-		background-color: rgb(255, 255, 255);
-		max-height: 300px;
-		h2 {
-			margin: 0.3rem;
-			padding: 0.2rem 1rem 0 1rem;
-		}
-		p {
-			margin: 0.3rem;
-			padding: 0rem 1rem 0.5rem 1rem;
-		}
-		span {
-			border: 1px solid maroon;
-			border-radius: 7px;
-			padding: 0.1em 0.2em;
-		}
-	}
+  background-color: white;
+  border-radius: 4px;
+  footer {
+    background-color: rgb(255, 255, 255);
+    max-height: 300px;
+    h2 {
+      margin: 0.3rem;
+      padding: 0.2rem 1rem 0 1rem;
+    }
+    p {
+      margin: 0.3rem;
+      padding: 0rem 1rem 0.5rem 1rem;
+    }
+    span {
+      border: 1px solid maroon;
+      border-radius: 7px;
+      padding: 0.1em 0.2em;
+    }
+  }
 }
 img {
-	aspect-ratio: 1/1;
-	height: 100px;
-	width: 100px;
-	margin: 0 auto;
+  aspect-ratio: 1/1;
+  height: 100px;
+  width: 100px;
+  margin: 0 auto;
 }
 p {
-	color: maroon;
-	strong {
-		font-size: 130%;
-	}
+  color: maroon;
+  strong {
+    font-size: 130%;
+  }
 }
 article > p {
-	padding: 0 1%;
-	margin: 0;
-	font-size: 75%;
-	width: fit-content;
-	background-color: #c0bfbf;
+  padding: 0 1%;
+  margin: 0;
+  font-size: 75%;
+  width: fit-content;
+  background-color: #c0bfbf;
 }
 .evolution {
-	margin: 0 0 2em 1rem;
-	padding: 0 0 0 0.2rem;
-	border-left: maroon solid 2px;
+  margin: 0 0 2em 1rem;
+  padding: 0 0 0 0.2rem;
+  border-left: maroon solid 2px;
 }
 .blankspace {
-	padding-bottom: 3rem;
+  padding-bottom: 3rem;
 }
 footer {
-	margin: 0.8rem auto 0 auto;
+  margin: 0.8rem auto 0 auto;
 }
 .paginator {
-	display: flex;
-	background-color: lightyellow;
-	justify-content: space-between;
-	box-shadow: 0 0 8px rgb(183, 195, 55);
-	button {
-		background-color: lightyellow;
-		padding: 0 1rem;
-		border: none;
-	}
-	p {
-		box-shadow: none;
-		margin: 0;
-		color: black;
-	}
-	span {
-		box-shadow: none;
-	}
+  display: flex;
+  background-color: lightyellow;
+  justify-content: space-between;
+  box-shadow: 0 0 8px rgb(183, 195, 55);
+  button {
+    background-color: lightyellow;
+    padding: 0 1rem;
+    border: none;
+  }
+  p {
+    box-shadow: none;
+    margin: 0;
+    color: black;
+  }
+  span {
+    box-shadow: none;
+  }
 }
 input:focus-visible {
-	outline: none;
+  outline: none;
 }
