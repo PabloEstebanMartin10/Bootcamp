@@ -49,7 +49,7 @@ function App() {
 			const s = pokeSpeciesInfo.find((s) => s.id === p.id);
 			return {
 				sprite: p.sprites.front_default,
-				id: p.order,
+				id: p.id,
 				name: p.name,
 				types: p.types.map((type) => type.type.name),
 				hasEvo: !!s?.evolves_from_species,
@@ -65,17 +65,16 @@ function App() {
 		getPokeData();
 	}, [pokenames]);
 	useEffect(() => {
-		console.log("pokeList actualizada:", pokeList);
+		// algo se hará por aqui
 	}, [pokeList]);
 	return (
 		<>
-			<div className="container">
+			<div className="container w-60% mb-4 mx-auto">
 				{/* pasar esto a componente */}
 				<div className="triangle triangle--r"></div>
 				<div className="triangle triangle--l"></div>
 				<div className="circle circle--r"></div>
 				<div className="circle circle--l"></div>
-				<div className="container"></div>
 				{/*                     */}
 				<NavBar>
 					<input
@@ -86,16 +85,24 @@ function App() {
 					/>
 				</NavBar>
 				<main className="pokecard pokecard__grid">
-					{pokeList.map((p) => (
-						<Cards
-							spriteURL={p.sprite}
-							id={p.id}
-							name={p.name}
-							types={p.types}
-							hasEvo={p.hasEvo}
-							evolvesFrom={p.evolvesFrom}
+					{pokeList.length ? (
+						pokeList.map((p) => (
+							<Cards
+								key={p.id}
+								spriteURL={p.sprite}
+								id={p.id}
+								name={p.name}
+								types={p.types}
+								hasEvo={p.hasEvo}
+								evolvesFrom={p.evolvesFrom}
+							/>
+						))
+					) : (
+						<img style={{minHeight: "600px", minWidth: "800px"}}
+							src="src/assets/pokeball.gif"
+							alt="pokeball"
 						/>
-					))}
+					)}
 				</main>
 			</div>
 		</>
