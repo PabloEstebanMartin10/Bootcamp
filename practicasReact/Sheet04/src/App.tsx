@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useEffectEvent, useState } from "react";
 import "./App.css";
 import NavBar from "./exercises/Navbar";
 import type { Pokemon } from "./exercises/data/pokemon";
@@ -10,10 +10,15 @@ interface PokeBasic {
 }
 
 function App() {
+  const paginator = 21;
+  const pagina = 0;
+  const [pokenamesFull, setPokenamesFull] = useState<PokeBasic[]>();
   const [pokenames, setPokenames] = useState<PokeBasic[]>([]);
   const [pokeList, setPokeList] = useState<Pokemon[]>([]);
   const [searchStr, setSearchStr] = useState("");
-  const pokeApiURL = `https://pokeapi.co/api/v2/pokemon?offset=${0}&&limit=${21}`;
+  const getPokeApiURL = (pagina: number, paginator: number) => {
+    return `https://pokeapi.co/api/v2/pokemon?offset=${pagina}&limit=${paginator}`;
+  };
   function filterStrChanged(e: React.ChangeEvent<HTMLInputElement>) {
     setSearchStr(e.target.value);
   }
@@ -23,12 +28,6 @@ function App() {
     const data = await response.json();
     return data;
   }
-  useEffect(() => {
-    (async () => {
-      const response = await fetchData(pokeApiURL);
-      setPokenames(response.results);
-    })();
-  }, []);
 
   async function getPokeData() {
     const pokePromises = pokenames.map((x) => fetch(x.url));
@@ -51,22 +50,50 @@ function App() {
         sprite: p.sprites.front_default,
         id: p.id,
         name: p.name,
-        types: p.types.map((type) => type.type.name),
+        types: p.types.map((types) => types.type.name),
         hasEvo: !!s?.evolves_from_species,
         evolvesFrom: s?.evolves_from_species?.name,
       };
     });
-
     setPokeList(merged);
   }
 
   useEffect(() => {
-    if (!pokenames.length) return;
+    (async () => {
+      const response = await fetchData(getPokeApiURL(pagina, paginator));
+      setPokenames(response.results);
+    })();
+  }, []);
+
+  useEffect(() => {
+    if (!pokenames?.length) return;
     getPokeData();
   }, [pokenames]);
+
   useEffect(() => {
-    // algo se hará por aqui
+    // console.log(pokeList);
+    (async () => {
+      if (pokenames.length) {
+        const response = await fetchData(getPokeApiURL(0, 2000));
+        setPokenamesFull(response.results);
+      }
+    })();
   }, [pokeList]);
+  // useEffect(() => {
+  //   console.log(pokenamesFull);
+  // }, [pokenamesFull]);
+  useEffect(() => {
+    if (searchStr !== "") {
+      const filteredNames = pokenamesFull?.filter((p) =>
+        p.name.toLowerCase().includes(searchStr.toLowerCase())
+      );
+      console.log(pokenames);
+      setPokenames(filteredNames?.slice(0,21));
+    } else {
+      const filteredNames = pokenamesFull?.slice(0,21)
+      setPokenames(filteredNames);
+    }
+  }, [searchStr]);
   return (
     <>
       <NavBar>
@@ -77,7 +104,11 @@ function App() {
           onChange={filterStrChanged}
         />
       </NavBar>
-      <main className="mt-4 grid grid-cols-[repeat(auto-fill,minmax(200px,1fr))] gap-x-6 gap-y-4">
+      <main
+        className={`mt-4 grid grid-cols-[repeat(auto-fill,minmax(200px,1fr))] gap-x-6 gap-y-4 ${
+          pokeList.length === 0 ? "place-items-center" : ""
+        }`}
+      >
         {pokeList.length ? (
           pokeList.map((p) => (
             <Cards
@@ -92,7 +123,7 @@ function App() {
           ))
         ) : (
           <img
-            style={{ minHeight: "600px", minWidth: "800px" }}
+            className="col-span-full row-span-full"
             src="src/assets/pokeball.gif"
             alt="pokeball"
           />
