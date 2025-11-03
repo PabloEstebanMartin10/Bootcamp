@@ -70,6 +70,7 @@ function App() {
     getPokeData();
   }, [pokenames]);
 
+
   useEffect(() => {
     // console.log(pokeList);
     (async () => {
@@ -87,7 +88,6 @@ function App() {
       const filteredNames = pokenamesFull?.filter((p) =>
         p.name.toLowerCase().includes(searchStr.toLowerCase())
       );
-      console.log(pokenames);
       setPokenames(filteredNames?.slice(0,21));
     } else {
       const filteredNames = pokenamesFull?.slice(0,21)
@@ -98,7 +98,9 @@ function App() {
     <>
       <NavBar>
         <input
-          className="h-10 w-full border-0 bg-yellow-100 text-center shadow-xs shadow-[rgb(201,198,13)] hover:outline-0"
+          className="h-10 w-full border-0 bg-yellow-100 text-center shadow-xs shadow-[rgb(201,198,13)] 
+          hover: outline-0"
+          placeholder="Filtra pokemon por nombre"
           type="text"
           value={searchStr}
           onChange={filterStrChanged}
